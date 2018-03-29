@@ -1,0 +1,36 @@
+{
+  "name": "clone-fnobi-koko",
+  "version": "1.0.0",
+  "description": "Clone [fnobi/koko: instant file server (proxy server).](https://github.com/fnobi/koko) for study",
+  "main": "index.js",
+  "scripts": {
+    "start": "./bin/koko"
+  },
+  "bin": "bin/koko",
+  "dependencies": {
+    "async": "~0.2.6",
+    "colors": "~0.6.0-1",
+    "empty-port": "0.0.1",
+    "express": "3.0.0rc3",
+    "http-proxy": "~0.10.0",
+    "marked": "^0.3.5",
+    "opn": "^4.0.2",
+    "optimist": "~0.3.5",
+    "php-express": "0.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-release": "^0.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yinm/clone-fnobi-koko.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yinm/clone-fnobi-koko/issues"
+  },
+  "homepage": "https://github.com/yinm/clone-fnobi-koko#readme"
+}
