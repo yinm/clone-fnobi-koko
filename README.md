@@ -1,1 +1,1 @@
-# clone-fnobi-koko
+Clone [fnobi/koko: instant file server (proxy server).](https://github.com/fnobi/koko) for study
