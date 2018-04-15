@@ -35,3 +35,18 @@ const Koko = function(root, opt) {
   this.useMarkdown = opt.useMarkdown
   this.htmlHandler = opt.htmlHandler
 }
+
+Koko.prototype.start = function() {
+  this.startServer(function(err) {
+    if (err) {
+      console.error((err + '').error)
+      process.exit()
+    }
+
+    if (!this.openPath) {
+      return
+    }
+
+    this.open()
+  }.bind(this))
+}
