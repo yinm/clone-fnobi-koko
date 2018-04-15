@@ -125,3 +125,20 @@ Koko.prototype.startServer = function(callback) {
     }.bind(this)
   ], callback)
 }
+
+Koko.prototype.open = function(callback) {
+  callback = callback || function() {}
+
+  const openPath = this.openPath
+
+  const host = localIP()[0] || '127.0.0.1'
+  const port = this.port
+
+  const openURL = [
+    'http://' + host + ':' + port,
+    openPath.replace ? openPath.replace(/^\//, '') : ''
+  ].join('/')
+
+  console.log('[open %s]'.info, openURL)
+  opn(openURL).then(callback)
+}
