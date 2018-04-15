@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const Koko = require(__dirname + '/../')
+
+const argv = require(optimist)
+  .describe('p', 'document root for server')
+  .alias('p', 'path')
+  .default('p', '.')
+
+  .describe('P', 'set static port')
+  .alias('P', 'port')
+
+  .describe('o', 'open server\'s url on browser')
+  .alias('o', 'open')
+
+  .describe('u', 'proxy url')
+  .alias('u', 'url')
+
+  .describe('php', 'using express-php')
+  .boolean('php')
+
+  .describe('md', 'using markdown rendering')
+  .boolean('md')
+  .alias('m', 'md')
+
+  .describe('h', 'show this help menu')
+  .boolean('h')
+  .alias('h', 'help')
+
+  .argv
+
+
+if (argv.h) {
+  console.log(require('optimist').help())
+  process.exit()
+}
+
+const dirname = argv.p || '.'
+const dirpath = path.resolve(dirname)
+
+const koko = new Koko(dirpath, {
+  openPath: argv.o,
+  staticPort: argv.port,
+  proxyURL: argv.u,
+  usePHP: argv.php,
+  useMarkdown: argv.md,
+})
+
+koko.start()
