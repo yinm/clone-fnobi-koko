@@ -152,3 +152,13 @@ Koko.prototype.renderMarkdown = function(req, res) {
   })
 }
 
+Koko.prototype.handleHtmlWithCustomHandler = function(req, res) {
+  const rel = req.url.slice(1)
+  const filePath = path.join(this.root, rel)
+  const htmlHandler = this.htmlHandler
+  fs.readFile(filePath, 'utf8', function(err, body) {
+    res.end(htmlHandler(body))
+  })
+}
+
+module.exports = Koko
