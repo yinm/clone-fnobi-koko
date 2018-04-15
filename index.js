@@ -142,3 +142,13 @@ Koko.prototype.open = function(callback) {
   console.log('[open %s]'.info, openURL)
   opn(openURL).then(callback)
 }
+
+
+Koko.prototype.renderMarkdown = function(req, res) {
+  const rel = req.url.slice(1)
+  const filePath = path.join(this.root, rel)
+  fs.readFile(filePath, 'utf8', function(err, body) {
+    res.end(marked(body))
+  })
+}
+
